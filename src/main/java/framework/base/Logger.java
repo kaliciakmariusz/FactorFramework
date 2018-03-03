@@ -15,7 +15,7 @@ public class Logger {
     public static ExtentReports getInstance() {
 
         ExtentReports extent;
-        extent = new ExtentReports(Settings.LogsPath + "\\" + Settings.LogFileName, false);
+        extent = new ExtentReports(System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.LogFileName, false);
         extent.addSystemInfo("Selenium Version", "3.8.1").addSystemInfo("Platform", "Windows 10");
 
         return extent;
@@ -23,7 +23,7 @@ public class Logger {
 
     public void createLogFolder() {
         try {
-            File dir = new File(Settings.LogsPath);
+            File dir = new File(System.getProperty("user.dir") + "\\" + Settings.LogsPath);
             if (!dir.exists()) {
                 dir.mkdir();
             }

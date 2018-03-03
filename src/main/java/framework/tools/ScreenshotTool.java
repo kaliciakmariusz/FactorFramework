@@ -19,7 +19,7 @@ public class ScreenshotTool {
 
     public static String takeScreenshotCurrentView(String fileName) throws IOException {
         fileName = fileName + " " + TimeTool.getTime() + ".png";
-        String directory = Settings.LogsPath + "/" + Settings.ScreenshootFolderName + "/";
+        String directory = System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.ScreenshootFolderName + "/";
         String destination = directory + fileName;
 
         File sourceFile = ((TakesScreenshot) DriverContext.driver).getScreenshotAs(OutputType.FILE);
@@ -31,7 +31,7 @@ public class ScreenshotTool {
 
     public static String takeScreenshotEntirePage(String fileName) throws IOException {
         fileName = fileName + " " + TimeTool.getTime() + ".png";
-        String directory = Settings.LogsPath + "/" + Settings.ScreenshootFolderName + "/";
+        String directory = System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.ScreenshootFolderName + "/";
         String destination = directory + fileName;
 
         Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100))

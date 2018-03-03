@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
     private WebElement txtPassword;
 
     // buttons
-    @FindBy(css = "input[value=Zaloguja]")
+    @FindBy(css = "input[value=Zaloguj]")
     private WebElement btnLogin;
 
     // errors

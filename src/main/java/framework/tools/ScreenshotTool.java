@@ -32,7 +32,7 @@ public class ScreenshotTool {
     public static String takeScreenshotEntirePage(String fileName) throws IOException {
         fileName = fileName + " " + TimeTool.getTime() + ".png";
         String directory = System.getProperty("user.dir") + "/" + Settings.LogsPath + "/" + Settings.ScreenshootFolderName + "/";
-        String destination = directory + fileName;
+        String destination = directory + fileName.replace(" ", "");
 
         Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .takeScreenshot(DriverContext.driver);

@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
+        <sourceDirectory>${project.basedir}/src/main/java/</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/java/</testSourceDirectory>
         <plugins>
 
             <plugin>

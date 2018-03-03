@@ -3,6 +3,7 @@ package framework.base;
 import io.github.bonigarcia.wdm.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -39,6 +40,7 @@ public class FrameworkInitialize extends Logger {
                 break;
             }
         }
+
         DriverContext.setDriver(driver);
         DriverContext.browser = new Browser(driver);
     }

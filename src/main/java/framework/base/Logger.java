@@ -21,14 +21,14 @@ public class Logger {
         return extent;
     }
 
-    public void createLogFolder() {
+    public static void checkFolderPath(String path) {
         try {
-            File dir = new File(System.getProperty("user.dir") + "/" + Settings.LogsPath);
+            File dir = new File(System.getProperty("user.dir") + "/" + path);
             if (!dir.exists()) {
                 dir.mkdir();
             }
         } catch(Exception e) {
-            error("Create log folder - fail", e);
+
         }
     }
 

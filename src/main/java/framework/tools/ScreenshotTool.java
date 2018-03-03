@@ -2,6 +2,9 @@ package framework.tools;
 
 import framework.base.DriverContext;
 import framework.config.Settings;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
@@ -9,11 +12,8 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+
+import static framework.base.Logger.checkFolderPath;
 
 public class ScreenshotTool {
 
@@ -32,6 +32,7 @@ public class ScreenshotTool {
     public static String takeScreenshotEntirePage(String fileName) throws IOException {
         fileName = fileName + " " + TimeTool.getTime() + ".png";
         String directory = System.getProperty("user.dir") + "/" + Settings.LogsPath + "/" + Settings.ScreenshootFolderName + "/";
+        checkFolderPath(directory);
         String destination = directory + fileName.replace(" ", "");
 
         Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100))

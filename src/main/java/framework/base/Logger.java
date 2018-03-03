@@ -23,7 +23,7 @@ public class Logger {
 
     public static void checkFolderPath(String path) {
         try {
-            File dir = new File(System.getProperty("user.dir") + "/" + path);
+            File dir = new File(path);
             if (!dir.exists()) {
                 dir.mkdir();
             }

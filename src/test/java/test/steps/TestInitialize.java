@@ -26,7 +26,7 @@ public class TestInitialize extends FrameworkInitialize {
         initalizeBrowser(Settings.BrowserType);
         info("Browser was initialized: " + Settings.BrowserType);
 
-        DriverContext.browser.maximize();
+        //DriverContext.browser.maximize();
         //info("Browser window was maximalized");
 
         DriverContext.browser.setImplecityTime(Settings.BrowserImplicitlyTime);

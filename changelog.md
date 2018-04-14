@@ -1,3 +1,14 @@
+(1.1.0)
+-------------
+
++ Added webdrivers for windows/unix
++ Modificated of the browser initialization process(automatic system recognition)
++ Added extentreports v3
++ Optimized POM
++ Optimized Runners
+
+##### Mariusz Kaliciak <kaliciak.mariusz@gmail.com> 14-04-2018
+
 (1.0.4)
 -------------
 

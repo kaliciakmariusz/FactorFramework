@@ -11,29 +11,11 @@ import org.testng.annotations.Test;
 @CucumberOptions(features = {"src/test/java/test/features/"},
         glue = {"test/steps"},
         format = {"json:target/cucumber.json", "html:target/site/cucumber-pretty"})
-public class AllFeaturesTestNGRunner {
-
-    private TestNGCucumberRunner testNGCucumberRunner;
-
-    @BeforeClass(alwaysRun = true)
-    public void setUpClass() {
-        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-    }
-
+public class AllFeaturesTestNGRunner extends BaseRunner{
 
     @Test(groups = "cucumber", description = "Runs Cucumber All Feature", dataProvider = "features")
     public void runTests(CucumberFeatureWrapper cucumberFeatureWrapper) {
 
         testNGCucumberRunner.runCucumber(cucumberFeatureWrapper.getCucumberFeature());
-    }
-
-    @DataProvider
-    public Object[][] features() {
-        return testNGCucumberRunner.provideFeatures();
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void afterClass() {
-        testNGCucumberRunner.finish();
     }
 }

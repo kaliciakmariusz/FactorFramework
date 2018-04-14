@@ -16,7 +16,7 @@ import java.io.IOException;
 public class ScreenshotTool {
 
     public static String takeScreenshotCurrentView(String fileName) throws IOException {
-        fileName = fileName + " " + TimeTool.getTime() + ".png";
+        fileName = fileName + " " + TimeTool.getCurrentTime() + ".png";
         String directory = System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.ScreenshootFolderName + "/";
         String destination = directory + fileName;
 
@@ -28,7 +28,7 @@ public class ScreenshotTool {
     }
 
     public static String takeScreenshotEntirePage(String fileName) throws IOException {
-        fileName = fileName + " " + TimeTool.getTime() + ".png";
+        fileName = fileName + " " + TimeTool.getCurrentTime() + ".png";
         String directory = System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.ScreenshootFolderName + "/";
         String destination = directory + fileName;
 

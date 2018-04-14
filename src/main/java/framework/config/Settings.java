@@ -11,5 +11,6 @@ public class Settings {
     public static String ScreenshootFolderName;
     public static String LogsPath;
     public static String LogFileName;
+    public static String StartTestsTime;
 
 }

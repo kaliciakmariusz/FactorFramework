@@ -2,42 +2,42 @@ package framework.tools;
 
 import framework.base.DriverContext;
 import framework.config.Settings;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 import javax.imageio.ImageIO;
 import java.io.File;
-import java.io.IOException;
 
 public class ScreenshotTool {
 
-    public static String takeScreenshotCurrentView(String fileName) throws IOException {
-        fileName = fileName + " " + TimeTool.getCurrentTime() + ".png";
-        String directory = System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.ScreenshootFolderName + "/";
-        String destination = directory + fileName;
+    public static String takeScreenshotEntirePage(String screenshotFileName) {
+        String directoryPath = System.getProperty("user.dir") + "/" + Settings.LogsPath + "/screenshots/";
 
-        File sourceFile = ((TakesScreenshot) DriverContext.driver).getScreenshotAs(OutputType.FILE);
+        makeDirectoryFolder(directoryPath);
 
-        FileUtils.copyFile(sourceFile, new File(directory + fileName));
+        String destination = directoryPath + screenshotFileName;
 
-        return destination;
-    }
+        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(DriverContext.driver);
 
-    public static String takeScreenshotEntirePage(String fileName) throws IOException {
-        fileName = fileName + " " + TimeTool.getCurrentTime() + ".png";
-        String directory = System.getProperty("user.dir") + "\\" + Settings.LogsPath + "\\" + Settings.ScreenshootFolderName + "/";
-        String destination = directory + fileName;
+        try {
+            ImageIO.write(screenshot.getImage(), "PNG", new File(destination));
+        } catch (Exception e) {
 
-        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(DriverContext.driver);
-
-        ImageIO.write(screenshot.getImage(), "PNG", new File(destination));
+        }
 
         return destination;
     }
 
+    private static void makeDirectoryFolder(String directoryPath) {
+
+        try {
+            File dir = new File(directoryPath);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+        } catch (Exception e) {
+
+        }
+    }
 }

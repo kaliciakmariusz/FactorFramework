@@ -6,6 +6,7 @@
 + Added extentreports v3
 + Optimized POM
 + Optimized Runners
++ Optimized ScreenshootTool
 
 ##### Mariusz Kaliciak <kaliciak.mariusz@gmail.com> 14-04-2018
 

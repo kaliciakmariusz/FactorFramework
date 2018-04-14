@@ -7,7 +7,6 @@ public abstract class BasePage extends Base {
             return (TPage) this;
         } catch (Exception e) {
             e.getStackTrace();
-            error("as<TPage> method error", e);
         }
         return null;
     }

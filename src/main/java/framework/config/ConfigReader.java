@@ -1,13 +1,12 @@
 package framework.config;
 
 import framework.base.BrowserType;
-import framework.base.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ConfigReader extends Logger {
+public class ConfigReader {
 
     public static void populateSettings() {
         ConfigReader reader = new ConfigReader();
@@ -23,7 +22,7 @@ public class ConfigReader extends Logger {
         try {
             p.load(inputStream);
         } catch (IOException e) {
-            error(String.format("config.properties read error: %s"), e);
+
         }
 
         Settings.AUTConnectionString = p.getProperty("AUTConnectionString");

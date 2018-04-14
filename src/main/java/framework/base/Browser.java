@@ -32,4 +32,8 @@ public class Browser extends Base {
     public void deleteCookies() {
         this.driver.manage().deleteAllCookies();
     }
+
+    public String getCurrentURL() {
+        return this.driver.getCurrentUrl();
+    }
 }

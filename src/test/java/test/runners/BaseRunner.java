@@ -4,16 +4,18 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import framework.base.BrowserType;
 import framework.config.ConfigReader;
 import framework.config.Settings;
+import framework.tools.LogsTool;
 import org.testng.annotations.*;
 
 public class BaseRunner {
 
     protected TestNGCucumberRunner testNGCucumberRunner;
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
         ConfigReader.populateSettings();
         setBrowserTypeFromConsole();
+        LogsTool.setExtentReportsSettings();
     }
 
     @BeforeClass(alwaysRun = true)
@@ -28,10 +30,10 @@ public class BaseRunner {
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
-
+        LogsTool.setExtentReportsInfo();
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void afterSuite() {
         testNGCucumberRunner.finish();
     }

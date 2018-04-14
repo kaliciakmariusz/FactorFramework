@@ -15,9 +15,6 @@ public class TestInitialize extends FrameworkInitialize {
     @Before
     public void initializeTest(Scenario scenario) {
 
-        //initializeTest Config
-        ConfigReader.populateSettings();
-
         initalizeBrowser();
 
         DriverContext.browser.maximize();

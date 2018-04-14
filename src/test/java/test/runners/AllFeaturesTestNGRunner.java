@@ -10,7 +10,8 @@ import org.testng.annotations.Test;
 
 @CucumberOptions(features = {"src/test/java/test/features/"},
         glue = {"test/steps"},
-        format = {"json:target/cucumber.json", "html:target/site/cucumber-pretty"})
+        format = {"json:target/cucumber.json", "html:target/site/cucumber-pretty"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"})
 public class AllFeaturesTestNGRunner extends BaseRunner{
 
     @Test(groups = "cucumber", description = "Runs Cucumber All Feature", dataProvider = "features")

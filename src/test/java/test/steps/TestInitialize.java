@@ -1,19 +1,19 @@
 package test.steps;
 
+import com.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import framework.base.DriverContext;
 import framework.base.FrameworkInitialize;
-import framework.config.ConfigReader;
 import framework.config.Settings;
-
-import java.io.IOException;
+import framework.tools.ScreenshotTool;
+import framework.tools.TimeTool;
 
 public class TestInitialize extends FrameworkInitialize {
 
     @Before
-    public void initializeTest(Scenario scenario) {
+    public void initializeTest() {
 
         initalizeBrowser();
 
@@ -27,11 +27,15 @@ public class TestInitialize extends FrameworkInitialize {
     }
 
     @After
-    public void downTest(Scenario scenario) throws IOException {
+    public void downTest(Scenario scenario) {
 
         if (scenario.isFailed()) {
+            String screenshotName = (scenario.getName() + TimeTool.getCurrentTime() + ".png").replace(" ", "_");
+            try {
+                Reporter.addScreenCaptureFromPath(ScreenshotTool.takeScreenshotEntirePage(screenshotName));
+            } catch (Exception e) {
 
-        } else {
+            }
         }
 
         DriverContext.browser.closeBrowser();

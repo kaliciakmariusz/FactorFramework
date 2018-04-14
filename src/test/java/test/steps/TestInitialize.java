@@ -7,7 +7,6 @@ import framework.base.DriverContext;
 import framework.base.FrameworkInitialize;
 import framework.config.ConfigReader;
 import framework.config.Settings;
-import framework.tools.ScreenshotTool;
 
 import java.io.IOException;
 
@@ -19,7 +18,7 @@ public class TestInitialize extends FrameworkInitialize {
         //initializeTest Config
         ConfigReader.populateSettings();
 
-        initalizeBrowser(Settings.BrowserType);
+        initalizeBrowser();
 
         DriverContext.browser.maximize();
 

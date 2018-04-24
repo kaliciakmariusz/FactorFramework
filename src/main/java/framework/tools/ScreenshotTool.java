@@ -2,6 +2,7 @@ package framework.tools;
 
 import framework.base.DriverContext;
 import framework.config.Settings;
+import lombok.extern.slf4j.Slf4j;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
@@ -9,6 +10,7 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import javax.imageio.ImageIO;
 import java.io.File;
 
+@Slf4j
 public class ScreenshotTool {
 
     public static String takeScreenshotEntirePage(String screenshotFileName) {
@@ -23,7 +25,7 @@ public class ScreenshotTool {
         try {
             ImageIO.write(screenshot.getImage(), "PNG", new File(destination));
         } catch (Exception e) {
-
+log.error("", e);
         }
 
         return destination;

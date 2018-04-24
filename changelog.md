@@ -7,6 +7,9 @@
 + Optimized POM
 + Optimized Runners
 + Optimized ScreenshootTool
++ Added logger - SLF4J
++ update .gitignore
++ improvments
 
 ##### Mariusz Kaliciak <kaliciak.mariusz@gmail.com> 14-04-2018
 

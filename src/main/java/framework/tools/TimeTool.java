@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class TimeTool {
 
-    public static String getTime() {
+    public static String getCurrentTime() {
         Date currentDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy HHmmss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HHmmss.SSSZ");
         String dateString = dateFormat.format(currentDate);
         return dateString;
     }

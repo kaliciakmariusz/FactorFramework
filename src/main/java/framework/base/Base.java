@@ -2,7 +2,7 @@ package framework.base;
 
 import framework.controls.api.ControlFactory;
 
-public class Base extends Logger {
+public class Base {
 
     public static BasePage currentPage;
 

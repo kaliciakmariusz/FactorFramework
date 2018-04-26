@@ -25,7 +25,7 @@ public class LoginPage extends BasePage {
         return txtLogin.getAttribute("value");
     }
 
-    public String getFormError(){
+    public String getFormError() {
         return formError.getText();
     }
 

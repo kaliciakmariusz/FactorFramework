@@ -1,9 +1,10 @@
 package framework.base;
 
 public enum BrowserType {
-    FireFox,
-    Chrome,
-    IE,
-    Opera,
-    Edge
+    firefox,
+    chrome,
+    chrome_headless,
+    ie,
+    opera,
+    edge
 }

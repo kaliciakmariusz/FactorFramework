@@ -1,11 +1,15 @@
 package framework.tools;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+@Slf4j
 public class GeneratorTool {
 
     public static int generateRandomNumber(final int min, final int max) {
-        return (int) ((max - min + 1) * Math.random() + min);
+        int randomNumber = (int) ((max - min + 1) * Math.random() + min);
+        log.debug("generateRandomNumber({}, {}) has generated: {}", min, max, randomNumber);
+        return randomNumber;
     }
 
     public static String generateRandonStringCharacters(int howManyCharacters) {
@@ -22,6 +26,7 @@ public class GeneratorTool {
             }
             stringCharacters.append(randomChar);
         }
+        log.debug("generateRandomStringCharacters({}) has generated: {}", howManyCharacters, stringCharacters.toString());
         return stringCharacters.toString();
     }
 }

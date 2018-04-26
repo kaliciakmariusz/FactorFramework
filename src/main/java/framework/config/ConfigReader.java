@@ -1,13 +1,15 @@
 package framework.config;
 
 import framework.base.BrowserType;
-import framework.base.Logger;
+import framework.tools.TimeTool;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ConfigReader extends Logger {
+@Slf4j
+public class ConfigReader {
 
     public static void populateSettings() {
         ConfigReader reader = new ConfigReader();
@@ -23,20 +25,17 @@ public class ConfigReader extends Logger {
         try {
             p.load(inputStream);
         } catch (IOException e) {
-            error(String.format("config.properties read error: %s"), e);
+            log.error("Failure to read configuration file: {}", e);
         }
 
-        Settings.AUTConnectionString = p.getProperty("AUTConnectionString");
         Settings.URLsite = p.getProperty("URLsite");
         Settings.LogsPath = p.getProperty("LogsPath");
         Settings.DriverType = p.getProperty("DriverType");
-        Settings.ExcelPath = p.getProperty("ExcelPath");
-        Settings.ExcelScenariosFile = p.getProperty("ExcelScenariosFile");
-        Settings.ExcelDataFile = p.getProperty("ExcelDataFile");
         Settings.BrowserType = BrowserType.valueOf(p.getProperty("BrowserType"));
         Settings.BrowserImplicitlyTime = Integer.valueOf(p.getProperty("BrowserImplicitlyTime"));
         Settings.ScreenshootFolderName = p.getProperty("ScreenshootFolderName");
         Settings.LogFileName = p.getProperty("LogFileName");
+        Settings.StartTestsTime = TimeTool.getCurrentTime();
     }
 }
 

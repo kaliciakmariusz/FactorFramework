@@ -8,8 +8,9 @@
 + Optimized Runners
 + Optimized ScreenshootTool
 + Added logger - SLF4J
-+ update .gitignore
-+ improvments
++ Update .gitignore
++ Add support for chrome--headless
++ others improvments
 
 ##### Mariusz Kaliciak <kaliciak.mariusz@gmail.com> 14-04-2018
 

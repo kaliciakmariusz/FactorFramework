@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -46,6 +47,17 @@ public class FrameworkInitialize {
                 driver = new ChromeDriver();
                 break;
             }
+            case chrome_headless: {
+                this.sB.append("chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", this.sB.toString());
+
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("window-size=1920,1080");
+
+                driver = new ChromeDriver(chromeOptions);
+                break;
+            }
             case firefox: {
                 this.sB.append("geckodriver.exe");
                 System.setProperty("webdriver.gecko.driver", this.sB.toString());
@@ -79,6 +91,17 @@ public class FrameworkInitialize {
                 this.sB.append("chromedriver");
                 System.setProperty("webdriver.chrome.driver", this.sB.toString());
                 driver = new ChromeDriver();
+                break;
+            }
+            case chrome_headless: {
+                this.sB.append("chromedriver");
+                System.setProperty("webdriver.chrome.driver", this.sB.toString());
+
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("window-size=1920,1080");
+
+                driver = new ChromeDriver(chromeOptions);
                 break;
             }
             case firefox: {

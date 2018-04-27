@@ -14,6 +14,7 @@
         <BrowserName></BrowserName>
 
         <selenium.version>3.8.1</selenium.version>
+        <selenium.firefox.driver>3.11.0</selenium.firefox.driver>
         <junit.version>4.11</junit.version>
         <webdrivermanager.version>2.0.1</webdrivermanager.version>
         <cucumber.version>1.2.5</cucumber.version>
@@ -79,6 +80,13 @@
             <artifactId>selenium-chrome-driver</artifactId>
             <version>${selenium.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
+            <version>${selenium.firefox.driver}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

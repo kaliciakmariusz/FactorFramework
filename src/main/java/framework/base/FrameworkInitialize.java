@@ -24,13 +24,13 @@ public class FrameworkInitialize {
 
         this.userDir = System.getProperty("user.dir");
         this.sB = new StringBuilder(userDir);
-        this.sB.append("\\src\\main\\resources\\drivers\\");
+        this.sB.append("/src/main/resources/drivers/");
 
         if (System.getProperty("os.name").contains("Windows")) {
-            this.sB.append("windows\\");
+            this.sB.append("windows/");
             makeWindowsDriver();
         } else {
-            this.sB.append("unix\\");
+            this.sB.append("unix/");
             makeUnixDriver();
         }
 

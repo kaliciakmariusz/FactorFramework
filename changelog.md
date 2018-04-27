@@ -12,7 +12,7 @@
 + Add support for chrome--headless
 + others improvments
 
-##### Mariusz Kaliciak <kaliciak.mariusz@gmail.com> 14-04-2018
+##### Mariusz Kaliciak <kaliciak.mariusz@gmail.com> 26-04-2018
 
 (1.0.4)
 -------------

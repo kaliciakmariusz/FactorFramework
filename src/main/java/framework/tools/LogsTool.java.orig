@@ -23,7 +23,11 @@ public class LogsTool {
     public static void setExtentReportsInfo() {
 
         Capabilities caps = ((RemoteWebDriver) DriverContext.driver).getCapabilities();
+<<<<<<< HEAD
+        final String extentConfigPath = "src\\main\\resources\\config\\extent-config.xml";
+=======
         final String extentConfigPath = "src/main/resources/config/extent-config.xml";
+>>>>>>> develop
 
         try {
             Reporter.loadXMLConfig(new File(extentConfigPath));

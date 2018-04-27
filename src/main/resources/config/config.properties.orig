@@ -1,0 +1,19 @@
+# Browser config
+BrowserType = chrome
+<<<<<<< HEAD
+BrowserImplicitlyTime = 30
+=======
+BrowserImplicitlyTime = 5
+>>>>>>> develop
+
+#Test config
+URLsite = https://fakturownia.pl/
+
+#Logger config
+LogsPath = test-output
+LogFileName = CucumberReports.html
+<<<<<<< HEAD
+ScreenshootFolderName = scrennshots
+=======
+ScreenshootFolderName = Scrennshots
+>>>>>>> develop

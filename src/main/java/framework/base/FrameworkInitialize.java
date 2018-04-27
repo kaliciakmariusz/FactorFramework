@@ -41,29 +41,6 @@ public class FrameworkInitialize {
 
     private void makeWindowsDriver() {
 
-    private StringBuilder sB = null;
-    private BrowserType browserType = Settings.BrowserType;
-
-    public void initalizeBrowser() {
-
-        this.userDir = System.getProperty("user.dir");
-        this.sB = new StringBuilder(userDir);
-        this.sB.append("\\src\\main\\resources\\drivers\\");
-
-        if (System.getProperty("os.name").contains("Windows")) {
-            this.sB.append("windows\\");
-            makeWindowsDriver();
-        } else {
-            this.sB.append("unix\\");
-            makeUnixDriver();
-        }
-
-        DriverContext.setDriver(driver);
-        DriverContext.browser = new Browser(driver);
-        log.debug("Framework starts driver: {}", sB.toString());
-    }
-
-    private void makeWindowsDriver() {
         switch (browserType) {
             case chrome: {
                 this.sB.append("chromedriver.exe");
@@ -110,7 +87,7 @@ public class FrameworkInitialize {
     }
 
     private void makeUnixDriver() {
-        
+
         switch (browserType) {
             case chrome: {
                 this.sB.append("chromedriver");

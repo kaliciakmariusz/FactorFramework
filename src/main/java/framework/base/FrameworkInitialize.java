@@ -40,6 +40,7 @@ public class FrameworkInitialize {
     }
 
     private void makeWindowsDriver() {
+
         switch (browserType) {
             case chrome: {
                 this.sB.append("chromedriver.exe");
@@ -86,6 +87,7 @@ public class FrameworkInitialize {
     }
 
     private void makeUnixDriver() {
+        
         switch (browserType) {
             case chrome: {
                 this.sB.append("chromedriver");

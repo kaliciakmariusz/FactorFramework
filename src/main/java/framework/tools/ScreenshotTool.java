@@ -25,7 +25,7 @@ public class ScreenshotTool {
         try {
             ImageIO.write(screenshot.getImage(), "PNG", new File(destination));
         } catch (Exception e) {
-log.error("", e);
+            log.error("", e);
         }
 
         return destination;

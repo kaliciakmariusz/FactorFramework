@@ -4,6 +4,7 @@ import framework.config.Settings;
 import io.github.bonigarcia.wdm.EdgeDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FilenameUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +19,7 @@ public class FrameworkInitialize {
     private WebDriver driver = null;
     private String userDir = null;
     private StringBuilder sB = null;
+    private String targetDriverPath = null;
     private BrowserType browserType = Settings.BrowserType;
 
     public void initalizeBrowser() {
@@ -27,30 +29,37 @@ public class FrameworkInitialize {
         this.sB.append("/src/main/resources/drivers/");
 
         if (System.getProperty("os.name").contains("Windows")) {
-            this.sB.append("windows/");
+            sB.append("windows/");
             makeWindowsDriver();
         } else {
-            this.sB.append("unix/");
+            sB.append("unix/");
             makeUnixDriver();
         }
 
         DriverContext.setDriver(driver);
         DriverContext.browser = new Browser(driver);
-        log.debug("Framework starts driver: {}", sB.toString());
+        log.debug("Framework starts driver: {}", targetDriverPath);
     }
 
     private void makeWindowsDriver() {
 
         switch (browserType) {
             case chrome: {
-                this.sB.append("chromedriver.exe");
-                System.setProperty("webdriver.chrome.driver", this.sB.toString());
+                sB.append("chromedriver.exe");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.chrome.driver", targetDriverPath);
+
                 driver = new ChromeDriver();
                 break;
             }
             case chrome_headless: {
-                this.sB.append("chromedriver.exe");
-                System.setProperty("webdriver.chrome.driver", this.sB.toString());
+                sB.append("chromedriver.exe");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.chrome.driver", targetDriverPath);
 
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
@@ -60,26 +69,36 @@ public class FrameworkInitialize {
                 break;
             }
             case firefox: {
-                this.sB.append("geckodriver.exe");
-                System.setProperty("webdriver.gecko.driver", this.sB.toString());
+                sB.append("geckodriver.exe");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.gecko.driver", targetDriverPath);
+
                 driver = new FirefoxDriver();
                 break;
             }
             case opera: {
-                this.sB.append("operadriver.exe");
-                System.setProperty("webdriver.opera.driver", this.sB.toString());
+                sB.append("operadriver.exe");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.opera.driver", targetDriverPath);
+
                 driver = new OperaDriver();
                 break;
             }
             case ie: {
-                this.sB.append("InternetExplorer.exe");
+                sB.append("InternetExplorer.exe");
                 InternetExplorerDriverManager.getInstance().setup();
+
                 driver = new InternetExplorerDriver();
                 break;
             }
             case edge: {
-                this.sB.append("MicrosoftEdge.exe");
+                sB.append("MicrosoftEdge.exe");
                 EdgeDriverManager.getInstance().setup();
+
                 driver = new EdgeDriver();
                 break;
             }
@@ -90,14 +109,21 @@ public class FrameworkInitialize {
         
         switch (browserType) {
             case chrome: {
-                this.sB.append("chromedriver");
-                System.setProperty("webdriver.chrome.driver", this.sB.toString());
+                sB.append("chromedriver");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.chrome.driver", targetDriverPath);
+
                 driver = new ChromeDriver();
                 break;
             }
             case chrome_headless: {
-                this.sB.append("chromedriver");
-                System.setProperty("webdriver.chrome.driver", this.sB.toString());
+                sB.append("chromedriver");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.chrome.driver", targetDriverPath);
 
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
@@ -107,14 +133,22 @@ public class FrameworkInitialize {
                 break;
             }
             case firefox: {
-                this.sB.append("geckodriver");
-                System.setProperty("webdriver.gecko.driver", this.sB.toString());
+                sB.append("geckodriver");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.gecko.driver", targetDriverPath);
+
                 driver = new FirefoxDriver();
                 break;
             }
             case opera: {
-                this.sB.append("operadriver");
-                System.setProperty("webdriver.opera.driver", this.sB.toString());
+                sB.append("operadriver");
+
+                targetDriverPath = FilenameUtils.separatorsToSystem(sB.toString());
+
+                System.setProperty("webdriver.opera.driver", targetDriverPath);
+
                 driver = new OperaDriver();
                 break;
             }
